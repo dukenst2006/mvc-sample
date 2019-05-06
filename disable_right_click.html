@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Desable right click on mouse </h2>
+        <h3>
+                Don't let the user use right click on mouse
+        </h3>
+        <p>
+
+        </p>
+    </div>
+</body>
+</html>
+
+<SCRIPT LANGUAGE="JavaScript">
+    var message = "Function Disabled!";
+    ///////////////////////////////////
+    function clickIE() {
+        if (document.all) {
+            alert(message);
+            return false;
+        }
+    }
+
+    function clickNS(e) {
+        if (document.layers || (document.getElementById && !document.all)) {
+            if (e.which == 2 || e.which == 3) {
+                alert(message);
+                return false;
+            }
+        }
+    }
+    if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN);
+        document.onmousedown = clickNS;
+    } else {
+        document.onmouseup = clickNS;
+        document.oncontextmenu = clickIE;
+    }
+
+    document.oncontextmenu = new Function("return false")
+    // --> 
+</script>
