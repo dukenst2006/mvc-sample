@@ -10,18 +10,13 @@
 
 <body>
 <div class="container pt-4">
-<table>
+<table class="table table-responsive">
 	<tr><td>Title</td><td>Author</td><td>Description</td></tr>
 	<?php 
-		echo '<table class="table-responsive">';
-		echo '<thead>';
-		echo '';
-		echo '</thead>';
 		foreach ($books as $title => $book)
 		{
 			echo '<tr><td><a href="index.php?book='.$book->title.'">'.$book->title.'</a></td><td>'.$book->author.'</td><td>'.$book->description.'</td></tr>';
 		}
-		echo '</table>';
 	?>
 </table>
 </div>
